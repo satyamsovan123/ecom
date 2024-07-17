@@ -37,3 +37,7 @@ Stripe | Razorpay | PhonePe | Paytm are to be used for payment integration. It's
 - Run `npm install`
 - Run `ng serve`
 - Open `http://localhost:4200/` in browser
+
+### Live demo
+
+The frontend is deployed on Firebase (free) - [https://ecom-angular-ui.web.app](https://ecom-angular-ui.web.app)
