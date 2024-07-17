@@ -1,3 +1,3 @@
 export const environment = {
-  backendUrl: 'http://localhost:3000/api/v1',
+  backendUrl: 'https://ecom-server-gzxu.onrender.com/api/v1',
 };
