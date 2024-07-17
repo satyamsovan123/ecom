@@ -1,0 +1,46 @@
+.big-text {
+  font-size: 63px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.hero-image {
+  width: 20%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
+
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section {
+  height: 100vh;
+}
+
+@media (min-width: 500px) {
+  .big-text {
+    font-size: 40px;
+  }
+}
+
+.parody {
+  font-size: 10px;
+}
+
+.subscribed {
+  filter: none;
+}
+
+.not-subscribed {
+  filter: grayscale(100%);
+}
+
+.days-warning {
+  font-size: 100px;
+  position: absolute;
+  z-index: -111;
+}

@@ -1,27 +1,39 @@
-# Ecom
+### Sample frontend for testing payment integration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.2.
+This is a sample frontend for testing payment integration.
 
-## Development server
+This frontend has 6 routes -
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- /home (Home page)
+- /signin (Signin page)
+- /signup (Signup page)
+- /order (Order page)
+- /profile (Profile page)
+- /content (Content page)
 
-## Code scaffolding
+These routes can be accessed only after authentication, where (Authorization: Bearer `token`) is passed in headers when required -
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- /order
+- /profile
+- /content
 
-## Build
+In case of invalid route, user will be redirected to /home.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Application flow
 
-## Running unit tests
+- Signup and signin
+- Apply coupon / place order (for one item at a time) and make payment (not implemented yet)
+- View profile
+- View content
+- Signout
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Setup payment integration
 
-## Running end-to-end tests
+Stripe | Razorpay | PhonePe | Paytm are to be used for payment integration. It's not implemented yet.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Setup application
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Clone the repository
+- Run `npm install`
+- Run `ng serve`
+- Open `http://localhost:4200/` in browser

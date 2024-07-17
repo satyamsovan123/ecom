@@ -1,0 +1,120 @@
+<section class="my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Profile</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 table-responsive">
+              <p>
+                You can regret as much as you can seeing your orders you made.
+                But in the end, we made the money.
+              </p>
+              <table class="table table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{ profile._id }}</td>
+                    <td>{{ profile.email }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Orders</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Coupon</th>
+                    <th>Paid</th>
+                    <th>Date</th>
+                    <th>Payment model</th>
+                    <th>Payment status</th>
+                    <th>Want refund?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orders">
+                    <td>{{ order._id }}</td>
+                    <td>{{ order.product.name }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>
+                      {{ order.coupon?.percent ? order.coupon?.percent : 0 }} %
+                    </td>
+                    <td>
+                      {{ order.totalAmount }}
+                      {{ order.product.currency.toUpperCase() }}
+                    </td>
+                    <td>
+                      {{
+                        order.createdAt | date : "dd/MM/yyyy hh:mm:ss a" : "IST"
+                      }}
+                    </td>
+                    <td>{{ order.product.paymentModel }}</td>
+                    <td>{{ order.paymentStatus }}</td>
+                    <td>
+                      <i
+                        [ngClass]="
+                          order.paymentStatus !== 'completed'
+                            ? 'disable-interaction'
+                            : ''
+                        "
+                        class="bi bi-cart-x fake-link"
+                        (click)="handleRefund(order)"
+                      ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">Do you really want us to give your money?</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            No, keep my money
+          </button>
+          <button type="button" class="btn btn-primary">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+</section>

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-md">
+  <div class="container-fluid padding-fix">
+    <a class="navbar-brand" [routerLink]="'/home'">Ecom</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a
+          *ngIf="!isAuthenticated"
+          class="nav-link"
+          [routerLink]="'/signup'"
+          [routerLinkActive]="'active'"
+          >Sign up</a
+        >
+        <a
+          *ngIf="!isAuthenticated"
+          class="nav-link"
+          [routerLinkActive]="'active'"
+          [routerLink]="'/signin'"
+          >Sign in</a
+        >
+        <a
+          *ngIf="isAuthenticated"
+          class="nav-link"
+          [routerLink]="'/order'"
+          [routerLinkActive]="'active'"
+          >Order</a
+        >
+        <a
+          *ngIf="isAuthenticated"
+          class="nav-link"
+          [routerLink]="'/profile'"
+          [routerLinkActive]="'active'"
+          >Profile</a
+        >
+        <a
+          *ngIf="isAuthenticated"
+          class="nav-link"
+          [routerLink]="'/content'"
+          [routerLinkActive]="'active'"
+          >Content</a
+        >
+        <a
+          *ngIf="isAuthenticated"
+          class="nav-link fake-nav-link"
+          (click)="handleSignout()"
+          >Sign out</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>

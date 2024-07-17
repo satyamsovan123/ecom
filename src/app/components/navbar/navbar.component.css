@@ -1,0 +1,15 @@
+.fake-nav-link {
+  cursor: pointer;
+}
+
+nav {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  backdrop-filter: blur(10px);
+}
+
+.padding-fix {
+  padding-left: 0;
+  padding-right: 0;
+}

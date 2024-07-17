@@ -1,0 +1,138 @@
+<section class="my-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Available products</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th colspan="1">Product</th>
+                    <th colspan="1">Price</th>
+                    <th colspan="1">Want it?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products">
+                    <td title="{{ product.description }}">
+                      {{ product.name }}
+                    </td>
+                    <td>
+                      {{ product.price }} {{ product.currency.toUpperCase() }}
+                    </td>
+                    <td>
+                      <i
+                        class="bi bi-cart-plus fake-link"
+                        (click)="addToCart(product)"
+                      ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr *ngIf="this.cartItems.length !== 0" />
+
+  <div class="row" *ngIf="this.cartItems.length !== 0">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Cart items</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Remove it?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cartItem of cartItems">
+                    <td>{{ cartItem.name }}</td>
+                    <td>
+                      {{ cartItem.price }}
+                      {{ cartItem.currency.toUpperCase() }}
+                    </td>
+                    <td>
+                      <i
+                        class="bi bi-cart-dash fake-link"
+                        (click)="removeFromCart(cartItem)"
+                      ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr *ngIf="this.cartItems.length !== 0" />
+
+  <div class="row" *ngIf="this.cartItems.length !== 0">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">Available coupons</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12 table-responsive">
+              <table class="table table-bordered align-middle">
+                <thead>
+                  <tr>
+                    <th colspan="1">Coupon</th>
+                    <th colspan="1">Discount</th>
+                    <th colspan="1">Apply it?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let coupon of coupons">
+                    <td>
+                      {{ coupon.name }}
+                    </td>
+                    <td>{{ coupon.percent }} %</td>
+                    <td>
+                      <i
+                        [ngClass]="
+                          coupon.isApplied
+                            ? 'bi-wallet disable-interaction'
+                            : 'bi-wallet-fill'
+                        "
+                        class="bi fake-link"
+                        (click)="applyCoupon(coupon)"
+                      ></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-primary" (click)="handlePlaceOrder()">
+                Place order for
+                {{
+                  this.cartItems.length > 1
+                    ? this.cartItems.length + " items"
+                    : this.cartItems.length + " item"
+                }}
+                for total
+                {{ this.totalAmount }} {{ this.currency.toUpperCase() }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
