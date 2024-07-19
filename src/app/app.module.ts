@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthenticationInterceptor } from './services/authentication.interceptor';
+import { HelpComponent } from './components/help/help.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AuthenticationInterceptor } from './services/authentication.interceptor
     LoaderComponent,
     NotificationComponent,
     NavbarComponent,
+    HelpComponent,
   ],
   imports: [
     BrowserModule,

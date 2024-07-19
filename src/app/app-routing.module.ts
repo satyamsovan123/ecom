@@ -7,6 +7,7 @@ import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ContentComponent } from './components/content/content.component';
 import { authenticationGuard } from './services/authentication.guard';
+import { HelpComponent } from './components/help/help.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     component: ContentComponent,
     canActivate: [authenticationGuard],
   },
+  { path: 'help', component: HelpComponent },
   { path: '**', component: HomeComponent },
 ];
 

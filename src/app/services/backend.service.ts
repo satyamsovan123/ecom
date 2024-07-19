@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -46,5 +47,11 @@ export class BackendService {
 
   order(data: any) {
     return this.httpClient.post(environment.backendUrl + '/order', data);
+  }
+
+  confirmOrder(data: any) {
+    return lastValueFrom(
+      this.httpClient.patch(environment.backendUrl + '/confirm-order', data)
+    );
   }
 }

@@ -40,7 +40,7 @@
 
   <hr *ngIf="this.cartItems.length !== 0" />
 
-  <div class="row" *ngIf="this.cartItems.length !== 0">
+  <ng-container class="row" *ngIf="this.cartItems.length !== 0">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">Cart items</div>
@@ -76,11 +76,11 @@
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
 
   <hr *ngIf="this.cartItems.length !== 0" />
 
-  <div class="row" *ngIf="this.cartItems.length !== 0">
+  <ng-container class="row" *ngIf="this.cartItems.length !== 0">
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">Available coupons</div>
@@ -119,7 +119,13 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <button class="btn btn-primary" (click)="handlePlaceOrder()">
+              <!-- (click)="handlePlaceOrder()" -->
+              <button
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#confirmModal"
+                (click)="handlePlaceOrder()"
+              >
                 Place order for
                 {{
                   this.cartItems.length > 1
@@ -134,5 +140,41 @@
         </div>
       </div>
     </div>
-  </div>
+  </ng-container>
+  <br />
 </section>
+
+<div
+  class="modal fade"
+  id="confirmModal"
+  tabindex="-1"
+  data-bs-backdrop="static"
+  aria-labelledby="confirmModalLabel"
+  data-bs-keyboard="false"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">Give us your money, would you?</div>
+      <div class="modal-body">
+        <div id="card-element" class="card-body mb-3"></div>
+        <button
+          type="button"
+          class="btn btn-primary mb-3"
+          (click)="handlePayment()"
+        >
+          Pay
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          (click)="handleCancelPayment()"
+        >
+          Cancel
+        </button>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
